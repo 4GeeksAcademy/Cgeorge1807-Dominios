@@ -4,19 +4,22 @@ import "./style.css";
 
 import "./assets/img/rigo-baby.jpg";
 import "./assets/img/4geeks.ico";
-window.onload = function() {
-  let pronouns = ["the", "our"];
-  let adjectives = ["great", "big"];
-  let nouns = ["jogger", "racoon"];
-  let domains = [".com", ".net", ".org", ".io"];
+let pronoun = ["the", "our"];
+let adj = ["great", "big"];
+let noun = ["jogger", "racoon"];
 
-  let randomPronoun = pronouns[Math.floor(Math.random() * pronouns.length)];
-  let randomAdjective =
-    adjectives[Math.floor(Math.random() * adjectives.length)];
-  let randomNoun = nouns[Math.floor(Math.random() * nouns.length)];
-  let randomDomain = domains[Math.floor(Math.random() * domains.length)];
+let domains = [];
 
-  let randomDomainName = `${randomPronoun}${randomAdjective}${randomNoun}${randomDomain}`;
+for (let i = 0; i < pronoun.length; i++) {
+  for (let j = 0; j < adj.length; j++) {
+    for (let h = 0; h < noun.length; h++) {
+      let domain = pronoun[i] + adj[j] + noun[h] + ".com";
+      domains.push(domain);
+    }
+  }
+}
 
-  document.getElementById("domain").innerText = randomDomainName;
-};
+console.log("Dominios Generados:");
+domains.forEach(function(domain) {
+  console.log(domain);
+});
